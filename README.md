@@ -48,8 +48,24 @@ ecommerce-system/
 │   │           │   └── Shippable.java
 │   │           │
 │   │           └── service/
-│   │               └── ShippingService.java
+│               └── ShippingService.java
 ```
+
+## UML Class Diagram
+
+The following UML diagram illustrates the relationships between the classes in the e-commerce system:
+
+![UML Class Diagram](uml-diagram.png)
+
+The diagram shows:
+- **Product** as the base class with common properties (name, price, quantity)
+- **ExpirableProduct** extends Product with expiry date functionality
+- **ShippableProduct** extends Product and implements Shippable interface
+- **ShippableExpirableProduct** extends ExpirableProduct and implements Shippable interface
+- **Shippable** interface defines methods for shippable items (getName, getWeight)
+- **Cart** contains CartItem objects, which reference Product objects
+- **Customer** has a balance and interacts with the checkout system
+- **ECommerceSystem** orchestrates the checkout process using ShippingService
 
 ## Class Descriptions
 
@@ -96,14 +112,18 @@ ecommerceSystem.checkout(customer, cart);
 ## Running the Application
 
 ### Method 1: Using Command Line (Recommended)
-`
 
-1. **Compile all Java files:**
+1. **Navigate to the project directory:**
    ```powershell
-   javac -d target main\java\com\ecommerce\*.java main\java\com\ecommerce\checkout\*.java main\java\com\ecommerce\model\*.java main\java\com\ecommerce\service\*.java
+   cd "d:\fawry\oop-task"
    ```
 
-2. **Run the application:**
+2. **Compile all Java files:**
+   ```powershell
+   javac -d target main/java/com/ecommerce/*.java main/java/com/ecommerce/*/*.java
+   ```
+
+3. **Run the application:**
    ```powershell
    java -cp target com.ecommerce.Main
    ```
@@ -174,15 +194,6 @@ Error: Insufficient balance
 
 === Scenario 4: Empty Cart ===
 Error: Cannot checkout with an empty cart
-
-=== Scenario 5: No Shipping ===
-** Checkout receipt **
-1x Mobile Scratch Card 50.0
-----------------------
-Subtotal 50.0
-Amount 50.0
-Remaining balance: 9950.0
-PS D:\fawry\oop-task>
 ```
 
 ## Assumptions
@@ -194,5 +205,7 @@ PS D:\fawry\oop-task>
 - Products cannot be added to the cart multiple times (must be removed first to change quantity)
 
 ## Author
+
+**Youssef Mohamed Saleh**
 
 Fawry Quantum Internship Challenge Submission
