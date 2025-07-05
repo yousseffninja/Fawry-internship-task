@@ -48,7 +48,7 @@ ecommerce-system/
 │   │           │   └── Shippable.java
 │   │           │
 │   │           └── service/
-│               └── ShippingService.java
+│   │               └── ShippingService.java
 ```
 
 ## UML Class Diagram
@@ -113,14 +113,14 @@ ecommerceSystem.checkout(customer, cart);
 
 ### Method 1: Using Command Line (Recommended)
 
-1. **Navigate to the project directory:**
+1. **Compile all Java files:**
    ```powershell
-   cd "d:\fawry\oop-task"
+   javac -d target main/java/com/ecommerce/model/Shippable.java main/java/com/ecommerce/model/Product.java main/java/com/ecommerce/model/ExpirableProduct.java main/java/com/ecommerce/model/ShippableProduct.java main/java/com/ecommerce/model/ShippableExpirableProduct.java main/java/com/ecommerce/model/CartItem.java main/java/com/ecommerce/model/Cart.java main/java/com/ecommerce/model/Customer.java main/java/com/ecommerce/service/ShippingService.java main/java/com/ecommerce/checkout/ECommerceSystem.java main/java/com/ecommerce/Main.java
    ```
 
-2. **Compile all Java files:**
+2. **Create target directory (if not exists):**
    ```powershell
-   javac -d target main/java/com/ecommerce/*.java main/java/com/ecommerce/*/*.java
+   mkdir -Force target
    ```
 
 3. **Run the application:**
@@ -137,13 +137,13 @@ If you encounter issues, compile each package separately:
 mkdir -Force target
 
 # Compile model classes first
-javac -d target main/java/com/ecommerce/model/*.java
+javac -d target main/java/com/ecommerce/model/Shippable.java main/java/com/ecommerce/model/Product.java main/java/com/ecommerce/model/ExpirableProduct.java main/java/com/ecommerce/model/ShippableProduct.java main/java/com/ecommerce/model/ShippableExpirableProduct.java main/java/com/ecommerce/model/CartItem.java main/java/com/ecommerce/model/Cart.java main/java/com/ecommerce/model/Customer.java
 
 # Compile service classes
-javac -d target -cp target main/java/com/ecommerce/service/*.java
+javac -d target -cp target main/java/com/ecommerce/service/ShippingService.java
 
 # Compile checkout classes
-javac -d target -cp target main/java/com/ecommerce/checkout/*.java
+javac -d target -cp target main/java/com/ecommerce/checkout/ECommerceSystem.java
 
 # Compile main class
 javac -d target -cp target main/java/com/ecommerce/Main.java
